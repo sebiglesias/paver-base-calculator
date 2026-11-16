@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paver Base Calculator — Gravel, Bedding Sand & Polymeric Sand — Accurate Material Estimator</title>
+  <meta name="description" content="Calculate exact cubic yards and tons of crushed stone base, coarse bedding sand, and polymeric joint sand with compaction factors.">
+  <link rel="canonical" href="https://sebiglesias.com.ar/paver-base-calculator/">
+  <meta name="theme-color" content="#d97706">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Paver Base Calculator — Gravel, Bedding Sand & Polymeric Sand">
+  <meta property="og:description" content="Calculate exact cubic yards and tons of crushed stone base, coarse bedding sand, and polymeric joint sand with compaction factors.">
+  <meta property="og:url" content="https://sebiglesias.com.ar/paver-base-calculator/">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BNDBQP0W7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2BNDBQP0W7');
+  </script>
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-3381238987477190">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3381238987477190" crossorigin="anonymous"></script>
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Paver Base Calculator \u2014 Gravel, Bedding Sand & Polymeric Sand",
+    "url": "https://sebiglesias.com.ar/paver-base-calculator/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "description": "Calculate exact cubic yards and tons of crushed stone base, coarse bedding sand, and polymeric joint sand with compaction factors.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How deep should a paver patio base be dug?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For pedestrian walkways and residential patios, excavate 7 to 8 inches deep (4 inches of compacted #21A crushed stone base, 1 inch of bedding sand, and 2-3/8 inches of paver thickness). For vehicular driveways, increase crushed stone base to 8 to 10 inches."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why should bedding sand never be compacted before laying pavers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bedding sand must remain loose and uncompacted when screeded. Laying pavers directly onto screeded sand and then running a plate compactor over the finished pavers locks the sand upward into the paver bevel joints from below."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the 20% gravel compaction factor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Loose crushed aggregate contains significant air pockets. When compacted with a heavy mechanical gas plate compactor, volume decreases by 15% to 20%. Failing to order extra gravel results in a base that is significantly too thin."
+        }
+      }
+    ]
+  }
+]
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">🧱 ICPI Hardscaping Standards</div>
+      <h1>Paver Patio & Walkway Base Calculator</h1>
+      <p class="subtitle">Calculate tons and cubic yards of crushed gravel base, bedding sand, compaction buffer, and edge restraints.</p>
+    </header>
+
+    <!-- AdSense Top Banner -->
+    <div style="text-align:center; margin: 16px 0;">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3381238987477190"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <main class="calc-grid">
+      <!-- Inputs Card -->
+      <form class="card" id="paver-base-calculator-form" onsubmit="event.preventDefault();">
+        <h2>📐 Patio Dimensions & Depth</h2>
+        
+        <div class="input-row">
+          <div class="form-group">
+            <label for="patioLen">Length <span class="hint">Total length</span></label>
+            <div class="input-wrap">
+              <input type="number" id="patioLen" step="0.5" min="1" value="20" required>
+              <span class="input-suffix">ft</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="patioWid">Width <span class="hint">Total width</span></label>
+            <div class="input-wrap">
+              <input type="number" id="patioWid" step="0.5" min="1" value="15" required>
+              <span class="input-suffix">ft</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="form-group">
+            <label for="gravelDepth">Gravel Base Depth <span class="hint">Pedestrian 4-6", Driveway 8-12"</span></label>
+            <div class="input-wrap">
+              <input type="number" id="gravelDepth" step="0.5" min="2" max="18" value="4">
+              <span class="input-suffix">inches</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="sandDepth">Bedding Sand Depth <span class="hint">Standard is exactly 1 inch</span></label>
+            <div class="input-wrap">
+              <input type="number" id="sandDepth" step="0.25" min="0.5" max="2" value="1">
+              <span class="input-suffix">inches</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+            <input type="checkbox" id="compactionBuffer" checked style="accent-color:#d97706; width:18px; height:18px;">
+            <span>Add 20% Gravel Compaction Factor (Industry Standard)</span>
+          </label>
+        </div>
+
+      </form>
+
+      <!-- Results Card -->
+      <div class="card">
+        <h2>🎯 Materials Needed</h2>
+        
+        <div class="result-hero">
+          <div class="result-label">Crushed Stone Base (#21A / Crushed Run)</div>
+          <div class="result-number" id="gravelTons">6.2</div>
+          <div class="result-label" style="color:#ffffff;">Tons of Gravel</div>
+          <div style="font-size:0.95rem; color:#fde68a; margin-top:6px;" id="gravelYards">≈ 4.44 Cubic Yards</div>
+        </div>
+
+        <div class="sub-hero-grid">
+          <div class="sub-hero-col">
+            <div class="sub-hero-label">Coarse Bedding Sand</div>
+            <div class="sub-hero-val" id="sandTons">1.3 Tons</div>
+            <div class="sub-hero-sub" id="sandYards">≈ 0.93 Cu Yards</div>
+          </div>
+          <div class="sub-hero-col">
+            <div class="sub-hero-label">Polymeric Joint Sand</div>
+            <div class="sub-hero-val" id="polyBags">4 Bags</div>
+            <div class="sub-hero-sub">50 lb Bags</div>
+          </div>
+        </div>
+
+        <div class="specs-grid">
+          <div class="spec-item">
+            <div class="spec-desc">Total Surface Area</div>
+            <div class="spec-val" id="totalArea">300 sq ft</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-desc">Perimeter Edge Restraints</div>
+            <div class="spec-val" id="edgeRestraints">70 Linear ft</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-desc">Excavation Depth</div>
+            <div class="spec-val" id="excavDepth">≈ 7.5 Inches</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-desc">Geotextile Fabric</div>
+            <div class="spec-val" id="geoFabric">330 sq ft (+10%)</div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Amazon Supplies Box -->
+    <section class="supplies-card">
+      <h3>🛠️ Recommended Tools, Hardware & Building Supplies</h3>
+      <div class="supplies-grid">
+        <div class="supply-item">
+          <div>
+            <div class="supply-title">PaveEdge Heavy-Duty Paver Edge Restraints (40ft Pack)</div>
+            <div class="supply-desc">Rigid commercial PVC paver edging strips with 10-inch steel spikes to prevent paver spreading.</div>
+          </div>
+          <a href="https://www.amazon.com/s?k=paver+edging+restraint+spikes&tag=sebiglesias-20" target="_blank" rel="nofollow noopener" class="btn-amazon">Check on Amazon →</a>
+        </div>
+        <div class="supply-item">
+          <div>
+            <div class="supply-title">Alliance Gator Maxx G2 Polymeric Joint Sand (50 lb)</div>
+            <div class="supply-desc">Rain-fast polymeric sand for concrete pavers, stone, and natural porcelain joints up to 4 inches.</div>
+          </div>
+          <a href="https://www.amazon.com/s?k=polymeric+sand+paver+joints+50lb&tag=sebiglesias-20" target="_blank" rel="nofollow noopener" class="btn-amazon">Check on Amazon →</a>
+        </div>
+        <div class="supply-item">
+          <div>
+            <div class="supply-title">Non-Woven Geotextile Underlayment Driveway Fabric (4 oz)</div>
+            <div class="supply-desc">Heavy-duty permeable ground stabilization membrane prevents base gravel from sinking into subgrade.</div>
+          </div>
+          <a href="https://www.amazon.com/s?k=non+woven+geotextile+fabric+driveway+paver&tag=sebiglesias-20" target="_blank" rel="nofollow noopener" class="btn-amazon">Check on Amazon →</a>
+        </div>
+        <div class="supply-item">
+          <div>
+            <div class="supply-title">Marshalltown 1-Inch Screed Pipe Conduit Set</div>
+            <div class="supply-desc">Rigid 1-inch metal screed pipes and aluminum straightedge for creating an uncompacted bedding sand layer.</div>
+          </div>
+          <a href="https://www.amazon.com/s?k=paver+sand+screed+rails+kit&tag=sebiglesias-20" target="_blank" rel="nofollow noopener" class="btn-amazon">Check on Amazon →</a>
+        </div>
+      </div>
+      <p style="font-size:0.75rem; color:#94a3b8; margin-top:14px; margin-bottom:0; text-align:center;">
+        ⚖️ <em>Affiliate Notice: As an Amazon Associate, this site earns from qualifying purchases at no additional cost to you. We strictly link to trade-grade construction tools, hardware, and safety materials.</em>
+      </p>
+    </section>
+
+    <!-- FAQ Section for SEO -->
+    <section class="faq-section">
+      <h2 style="font-size:1.35rem; color:#ffffff; margin-bottom:16px;">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <div class="faq-q">How deep should a paver patio base be dug?</div>
+        <div class="faq-a">For pedestrian walkways and residential patios, excavate 7 to 8 inches deep (4 inches of compacted #21A crushed stone base, 1 inch of bedding sand, and 2-3/8 inches of paver thickness). For vehicular driveways, increase crushed stone base to 8 to 10 inches.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Why should bedding sand never be compacted before laying pavers?</div>
+        <div class="faq-a">Bedding sand must remain loose and uncompacted when screeded. Laying pavers directly onto screeded sand and then running a plate compactor over the finished pavers locks the sand upward into the paver bevel joints from below.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What is the 20% gravel compaction factor?</div>
+        <div class="faq-a">Loose crushed aggregate contains significant air pockets. When compacted with a heavy mechanical gas plate compactor, volume decreases by 15% to 20%. Failing to order extra gravel results in a base that is significantly too thin.</div>
+      </div>
+    </section>
+
+    <!-- Bottom AdSense Banner -->
+    <div style="text-align:center; margin: 32px 0;">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3381238987477190"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <footer>
+      <p>© 2026 <a href="https://sebiglesias.com.ar/">sebiglesias.com.ar</a> · Paver Base Calculator — Gravel, Bedding Sand & Polymeric Sand. Educational and trade reference tool.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
